@@ -1,20 +1,31 @@
-import { IScreen, IScreensLayout } from '@/services/screens'
+import type { IImageSize, IScreenSize } from './types'
+import type { IScreen, IScreensLayout } from '@/services/screens'
 
-export const getImageSize = ( img: HTMLImageElement ) => ({
-    sx: 0,
-    sy: 0,
-    sw: img.width,
-    sh: img.height
-})
+function getImageSize
+( img: HTMLImageElement ): IImageSize
+{
+    return {
+        sx: 0,
+        sy: 0,
+        sw: img.width,
+        sh: img.height
+    }
+}
 
-export const getScreenSize = ( screen: IScreen ) => ({
-    dx: screen.left,
-    dy: screen.top,
-    dw: screen.width * screen.devicePixelRatio,
-    dh: screen.height * screen.devicePixelRatio
-})
+function getScreenSize
+( screen: IScreen ): IScreenSize
+{
+    return {
+        dx: screen.left,
+        dy: screen.top,
+        dw: screen.width * screen.devicePixelRatio,
+        dh: screen.height * screen.devicePixelRatio
+    }
+}
 
-export const calculateCrop = ( screen: IScreen, img: HTMLImageElement ) => {
+function calculateCrop
+( screen: IScreen, img: HTMLImageElement ): IScreenSize & IImageSize
+{
     let { sx, sy, sw, sh } = getImageSize( img )
     const { dx, dy, dw, dh } = getScreenSize( screen )
 
@@ -46,20 +57,26 @@ export const calculateCrop = ( screen: IScreen, img: HTMLImageElement ) => {
     }
 }
 
-export const drawImage = ( ctx: CanvasRenderingContext2D, screen: IScreen, image: string ) => new Promise<void>(( resolve ) => {
-    const img = new Image()
+export async function drawImage
+( ctx: CanvasRenderingContext2D, screen: IScreen, image: string ): Promise<void>
+{
+    await new Promise<void>(( resolve ) => {
+        const img = new Image()
 
-    img.addEventListener( 'load', () => {
-        const { sx, sy, sw, sh, dx, dy, dw, dh } = calculateCrop( screen, img )
+        img.addEventListener( 'load', () => {
+            const { sx, sy, sw, sh, dx, dy, dw, dh } = calculateCrop( screen, img )
 
-        ctx.drawImage( img, sx, sy, sw, sh, dx, dy, dw, dh )
-        resolve()
+            ctx.drawImage( img, sx, sy, sw, sh, dx, dy, dw, dh )
+            resolve()
+        })
+
+        img.src = image
     })
+}
 
-    img.src = image
-})
-
-export const clearScreen = ( ctx: CanvasRenderingContext2D, layout: IScreensLayout, color: string ) => {
+export function clearScreen
+( ctx: CanvasRenderingContext2D, layout: IScreensLayout, color: string ): void
+{
     ctx.rect( 0, 0, layout.width, layout.height )
     ctx.fill()
 }

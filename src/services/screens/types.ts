@@ -28,6 +28,6 @@ export interface IScreensLayout {
     left: number
     top: number
     width: number
-    height: number,
+    height: number
     zoom: number
 }

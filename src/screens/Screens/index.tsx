@@ -1,8 +1,10 @@
-import { TImageData, TImages } from '@/services/images'
-import { IScreen }             from '@/services/screens'
-import Screen                  from '@/shared/components/Screen'
+import Screen from '@/shared/components/Screen'
 
 import { EDITOR_PADDING } from './consts'
+
+import type { TImageData, TImages } from '@/services/images'
+import type { IScreen }             from '@/services/screens'
+import type { ReactNode }           from 'react'
 
 interface IScreensScreenProps {
     ready?: boolean
@@ -12,8 +14,9 @@ interface IScreensScreenProps {
     updateImage: ( label: string ) => ( image: TImageData ) => void
 }
 
-export default function ScreensScreen ({ ready, zoom, screens, images, updateImage }: IScreensScreenProps ) {
-
+export default function ScreensScreen
+({ ready, zoom, screens, images, updateImage }: IScreensScreenProps ): ReactNode
+{
     if ( !ready ) {
         return 'Calculating sizes...'
     }

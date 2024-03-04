@@ -1,24 +1,28 @@
 'use client'
 
-import { CSSProperties, useEffect, useState } from 'react'
-import { useWindowSize }                      from 'usehooks-ts'
+import { useEffect, useState } from 'react'
+import { useWindowSize }       from 'usehooks-ts'
 
-import GenerateFlow                from '@/flows/Generate'
-import ScreensScreen               from '@/screens/Screens'
-import { TImages, TImageData }     from '@/services/images'
-import { IScreen, IScreensLayout } from '@/services/screens'
-import { IWindowSize }             from '@/services/system'
-import Container                   from '@/shared/components/Container'
-import { useToggleState }          from '@/shared/lib/hooks/useToggleState'
+import GenerateFlow       from '@/flows/Generate'
+import ScreensScreen      from '@/screens/Screens'
+import Container          from '@/shared/components/Container'
+import { useToggleState } from '@/shared/lib/hooks/useToggleState'
 
 import { calculateScreensLayout } from './calc'
 import { fixScreenOffsetMap  }    from './helpers'
 
-export interface IEditorProps {
+import type { TImages, TImageData }      from '@/services/images'
+import type { IScreen, IScreensLayout }  from '@/services/screens'
+import type { IWindowSize }              from '@/services/system'
+import type { CSSProperties, ReactNode } from 'react'
+
+interface IEditFlowProps {
     screens?: IScreen[]
 }
 
-export default function EditFlow ({ screens }: IEditorProps ) {
+export default function EditFlow
+({ screens }: IEditFlowProps ): ReactNode
+{
     const size = useWindowSize()
 
     const [ generation,, runGeneration, stopGeneration ] = useToggleState( false )
@@ -28,7 +32,7 @@ export default function EditFlow ({ screens }: IEditorProps ) {
     const [ images, $images ] = useState<TImages>({})
     const [ style, $style ] = useState<CSSProperties>()
 
-    const updateConfigs = ( screens: IScreen[], size: IWindowSize ) => {
+    const updateConfigs = ( screens: IScreen[], size: IWindowSize ): void => {
         const data = calculateScreensLayout( screens, size )
 
         $layout( data )

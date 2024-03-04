@@ -1,9 +1,12 @@
-import { CSSProperties, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
-import { TImageData, ImageUploader } from '@/services/images'
-import { IScreen }                   from '@/services/screens'
+import { ImageUploader } from '@/services/images'
 
 import styles from './screen.module.css'
+
+import type { TImageData }               from '@/services/images'
+import type { IScreen }                  from '@/services/screens'
+import type { CSSProperties, ReactNode } from 'react'
 
 interface IScreenProps {
     config: IScreen
@@ -13,7 +16,9 @@ interface IScreenProps {
     offset?: number
 }
 
-export default function Screen ({ config, zoom, image, offset = 0, onImage }: IScreenProps ) {
+export default function Screen
+({ config, zoom, image, offset = 0, onImage }: IScreenProps ): ReactNode
+{
     const [ style, $style ] = useState<CSSProperties>()
 
     useEffect(() => {
@@ -23,7 +28,7 @@ export default function Screen ({ config, zoom, image, offset = 0, onImage }: IS
             width:  ( config.width * config.devicePixelRatio ) / zoom,
             height: ( config.height * config.devicePixelRatio ) / zoom
         })
-    }, [ config, zoom ])
+    }, [ config, zoom, offset ])
 
     return (
         <div className={styles.screen} style={style}>

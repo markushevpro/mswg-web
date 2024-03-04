@@ -1,17 +1,19 @@
-import { Close }                       from '@rsuite/icons'
-import { useEffect, useRef, useState } from 'react'
-import { IconButton, Loader }          from 'rsuite'
+import { Close }                                    from '@rsuite/icons'
+import { useCallback, useEffect, useRef, useState } from 'react'
+import { IconButton, Loader }                       from 'rsuite'
 
-import LoadingScreen               from '@/screens/Loading'
-import { TImages }                 from '@/services/images'
-import { IScreensLayout, IScreen } from '@/services/screens'
-import { downloadFile }            from '@/services/system'
-import BottomButton                from '@/shared/components/BottomButton'
-import Center                      from '@/shared/components/Center'
-import FloatingButtons             from '@/shared/components/FloatingButtons'
+import LoadingScreen    from '@/screens/Loading'
+import { downloadFile } from '@/services/system'
+import BottomButton     from '@/shared/components/BottomButton'
+import Center           from '@/shared/components/Center'
+import FloatingButtons  from '@/shared/components/FloatingButtons'
 
 import styles                     from './generation-flow.module.css'
 import { clearScreen, drawImage } from './helpers'
+
+import type { TImages }                 from '@/services/images'
+import type { IScreensLayout, IScreen } from '@/services/screens'
+import type { ReactNode }               from 'react'
 
 interface IWallperpGenerationFlowProps {
     layout: IScreensLayout
@@ -20,14 +22,16 @@ interface IWallperpGenerationFlowProps {
     onClose: () => void
 }
 
-export default function WallperpGenerationFlow ({ layout, screens, images, onClose }: IWallperpGenerationFlowProps ) {
+export default function WallperpGenerationFlow
+({ layout, screens, images, onClose }: IWallperpGenerationFlowProps ): ReactNode
+{
     const [ download, $download ] = useState<boolean>( false )
     const [ ready, $ready ] = useState<boolean>( false )
     const [ done, $done ] = useState<boolean>( false )
 
     const ref = useRef<HTMLCanvasElement>( null )
 
-    const redraw = async () => {
+    const redraw = useCallback( async (): Promise<void> => {
         if ( ready && ref.current ) {
             $done( false )
 
@@ -37,7 +41,7 @@ export default function WallperpGenerationFlow ({ layout, screens, images, onClo
                 clearScreen( ctx, layout, '#000000' )
 
                 for ( let i = 0; i < ( screens?.length ?? 0 ); i++ ) {
-                    let screen = screens?.[ i ]
+                    const screen = screens?.[ i ]
                     if ( screen && images[ screen.label ]) {
                         await drawImage( ctx, screen, images[ screen.label ] as string )
                     }
@@ -46,13 +50,21 @@ export default function WallperpGenerationFlow ({ layout, screens, images, onClo
                 $done( true )
             }
         }
+    }, [ ready, ref, layout, screens, images ])
+
+    const startRedraw = (): void => {
+        void redraw()
     }
 
-    const handleDownload = () => {
+    const handleDownload = (): void => {
         if ( ref.current ) {
             $download( true )
-            setTimeout(() => ref.current && downloadFile( ref.current.toDataURL(), 'mswg-wallpaper.png' ), 0 )
-            setTimeout(() => $download( false ), 1000 )
+            setTimeout(() => {
+                if ( ref.current ) {
+                    downloadFile( ref.current.toDataURL(), 'mswg-wallpaper.png' )
+                }
+            }, 0 )
+            setTimeout(() => { $download( false ) }, 1000 )
         }
     }
 
@@ -63,8 +75,8 @@ export default function WallperpGenerationFlow ({ layout, screens, images, onClo
     }, [ layout, screens, images ])
 
     useEffect(() => {
-        redraw()
-    }, [ ready, ref ])
+        void redraw()
+    }, [ redraw ])
 
     return (
         <Center>
@@ -75,7 +87,7 @@ export default function WallperpGenerationFlow ({ layout, screens, images, onClo
                         className={styles.canvas}
                         height={layout.height}
                         width={layout.width}
-                        onClick={redraw}
+                        onClick={startRedraw}
                     />
                 )
             }

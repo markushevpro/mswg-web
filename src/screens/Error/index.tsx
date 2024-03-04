@@ -1,5 +1,7 @@
 import { Button } from 'rsuite'
 
+import type { ReactNode } from 'react'
+
 interface IErrorScreenProps {
     title: string
     text?: string
@@ -7,7 +9,9 @@ interface IErrorScreenProps {
     action?: () => void
 }
 
-export default function ErrorScreen ({ title, text, button, action }: IErrorScreenProps ) {
+export default function ErrorScreen
+({ title, text, button, action }: IErrorScreenProps ): ReactNode
+{
     return (
         <>
             <h1>{ title }</h1>

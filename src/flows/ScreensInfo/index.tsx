@@ -1,6 +1,6 @@
 'use client'
 
-import { ReactElement, cloneElement } from 'react'
+import { cloneElement } from 'react'
 
 import ErrorScreen    from '@/screens/Error'
 import LoadingScreen  from '@/screens/Loading'
@@ -8,16 +8,20 @@ import { useScreens } from '@/services/screens'
 
 import { getErrorText } from './helpers'
 
+import type { ReactElement, ReactNode } from 'react'
+
 interface IScreensInfoProps {
     children: ReactElement
 }
 
-export default function ScreensInfoFlow ({ children }: IScreensInfoProps ) {
+export default function ScreensInfoFlow
+({ children }: IScreensInfoProps ): ReactNode
+{
     const { screens, denied, error, loading, available, retry } = useScreens()
 
-    const requestAccess = async () => {
+    const requestAccess = async (): Promise<void> => {
         if ( typeof window !== 'undefined' ) {
-            retry()
+            await retry()
         }
     }
 

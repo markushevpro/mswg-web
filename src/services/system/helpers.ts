@@ -1,4 +1,6 @@
-export const downloadFile = ( data: string, filename: string ) => {
+export function downloadFile
+( data: string, filename: string ): void
+{
     const link = document.createElement( 'a' )
 
     link.download = filename
