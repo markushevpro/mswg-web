@@ -1,11 +1,12 @@
+import type { PropsWithChildren } from 'react'
+
 import { Header, Content, Container } from 'rsuite'
 
 import styles from './app-layout.module.css'
 
-import type { PropsWithChildren, ReactNode } from 'react'
-
-export default function AppLayout
-({ children }: PropsWithChildren ): ReactNode
+export
+function AppLayout
+({ children }: PropsWithChildren )
 {
     return (
         <main className={styles.pageContainer}>

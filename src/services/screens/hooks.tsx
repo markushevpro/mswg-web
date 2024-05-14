@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react'
-
 import type { IScreen } from './types'
+
+import { useEffect, useState } from 'react'
 
 declare global {
     interface Window {
@@ -17,13 +17,14 @@ interface IUseScreensResult {
     retry: () => Promise<void>
 }
 
-export function useScreens
+export
+function useScreens
 (): IUseScreensResult
 {
     const [ loading, $loading ] = useState<boolean>( true )
     const [ screens, $screens ] = useState<IScreen[]>([])
-    const [ error, $error ] = useState<boolean>( false )
-    const [ denied, $denied ] = useState<boolean>( false )
+    const [ error, $error ]     = useState<boolean>( false )
+    const [ denied, $denied ]   = useState<boolean>( false )
 
     const getScreens = async (): Promise<void> => {
         $loading( true )

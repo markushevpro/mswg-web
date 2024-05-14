@@ -1,14 +1,15 @@
+import type { TImageData }    from '@/services/images'
+import type { IScreen }       from '@/services/screens'
+import type { CSSProperties } from 'react'
+
 import { useEffect, useState } from 'react'
 
 import { ImageUploader } from '@/services/images'
 
 import styles from './screen.module.css'
 
-import type { TImageData }               from '@/services/images'
-import type { IScreen }                  from '@/services/screens'
-import type { CSSProperties, ReactNode } from 'react'
-
-interface IScreenProps {
+interface IScreenProps
+{
     config: IScreen
     zoom: number
     image?: TImageData
@@ -16,8 +17,9 @@ interface IScreenProps {
     offset?: number
 }
 
-export default function Screen
-({ config, zoom, image, offset = 0, onImage }: IScreenProps ): ReactNode
+export
+function Screen
+({ config, zoom, image, offset = 0, onImage }: IScreenProps )
 {
     const [ style, $style ] = useState<CSSProperties>()
 

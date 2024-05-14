@@ -1,4 +1,5 @@
-export function getErrorText
+export
+function getErrorText
 ( available?: boolean, denied?: boolean ): string
 {
     if ( !available ) {

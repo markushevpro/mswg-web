@@ -1,13 +1,12 @@
 import styles from './image-preview.module.css'
 
-import type { ReactNode } from 'react'
-
 interface IImagePreviewProps {
     src: string
 }
 
-export default function ImagePreview
-({ src }: IImagePreviewProps ): ReactNode
+export
+function ImagePreview
+({ src }: IImagePreviewProps )
 {
     return (
         <div className={styles.container}>
@@ -15,7 +14,7 @@ export default function ImagePreview
                 src && (
                     <img alt="" src={src} />
                 )
-            }
+ }
         </div>
     )
 }

@@ -1,15 +1,15 @@
-import { fixedLeft, fixedTop } from './helpers'
-
 import type { IScreen, IScreensLayout } from '@/services/screens'
 import type { IWindowSize }             from '@/services/system'
+
+import { fixedLeft, fixedTop } from './helpers'
 
 // TODO: Refactor for readability
 export const calculateScreensLayout = ( screens: IScreen[], size: IWindowSize ): IScreensLayout => {
     const _left = screens.reduce(( left, screen ) => Math.min( left, screen.left ), Infinity )
-    const _top = screens.reduce(( top, screen ) => Math.min( top, screen.top ), Infinity )
+    const _top  = screens.reduce(( top, screen ) => Math.min( top, screen.top ), Infinity )
 
     const left = screens.reduce(( left, screen ) => Math.min( left, fixedLeft( screen, _left ) * screen.devicePixelRatio ), Infinity )
-    const top = screens.reduce(( top, screen ) => Math.min( top, fixedTop( screen, _top ) * screen.devicePixelRatio ), Infinity )
+    const top  = screens.reduce(( top, screen ) => Math.min( top, fixedTop( screen, _top ) * screen.devicePixelRatio ), Infinity )
 
     const width = screens
         .sort(( a, b ) => fixedLeft( a, left ) * a.devicePixelRatio - fixedLeft( b, left ) * b.devicePixelRatio )

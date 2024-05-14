@@ -1,15 +1,14 @@
 import { Loader } from 'rsuite'
 
-import Center from '@/shared/components/Center'
-
-import type { ReactNode } from 'react'
+import { Center } from '@/shared/components/Center'
 
 interface ILoadingScreenProps {
     className?: string
 }
 
-export default function LoadingScreen
-({ className }: ILoadingScreenProps ): ReactNode
+export
+function LoadingScreen
+({ className }: ILoadingScreenProps )
 {
     return (
         <Center className={className}>

@@ -5,6 +5,14 @@
     ],
     "rules": {
         "@next/next/no-img-element": [0]
-    }
+    },
+    "overrides": [        
+        {
+            "files": ["./src/app/*"],
+            "rules": {
+                "import/no-default-export": "off"
+            }
+        }
+    ]
 }
     

@@ -26,23 +26,23 @@ function getScreenSize
 function calculateCrop
 ( screen: IScreen, img: HTMLImageElement ): IScreenSize & IImageSize
 {
-    let { sx, sy, sw, sh } = getImageSize( img )
+    let { sx, sy, sw, sh }   = getImageSize( img )
     const { dx, dy, dw, dh } = getScreenSize( screen )
 
-    const targetAspect = dw / dh
+    const targetAspect  = dw / dh
     const currentAspect = img.width / img.height
 
     if ( targetAspect < currentAspect ) {
         // portrait
         const realWidth = img.height * targetAspect
-        const offset = ( img.width - realWidth ) / 2
-        sx = offset
-        sw = realWidth
+        const offset    = ( img.width - realWidth ) / 2
+        sx              = offset
+        sw              = realWidth
     } else {
         const realHeight = img.width / targetAspect
-        const offset = ( img.height - realHeight ) / 2
-        sy = offset
-        sh = realHeight
+        const offset     = ( img.height - realHeight ) / 2
+        sy               = offset
+        sh               = realHeight
     }
 
     return {
@@ -74,7 +74,8 @@ export async function drawImage
     })
 }
 
-export function clearScreen
+export
+function clearScreen
 ( ctx: CanvasRenderingContext2D, layout: IScreensLayout, color: string ): void
 {
     ctx.rect( 0, 0, layout.width, layout.height )

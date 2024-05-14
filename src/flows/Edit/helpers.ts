@@ -19,19 +19,22 @@ function ratioFix
     return number - ( number * pixelRatio )
 }
 
-export function fixScreenOffsetMap
+export
+function fixScreenOffsetMap
 ( offsetX: number, offsetY: number ): ( screen: IScreen ) => IScreen
 {
     return ( screen: IScreen ) => fixScreenOffset( screen, offsetX, offsetY )
 }
 
-export function fixedTop
+export
+function fixedTop
 ( screen: IScreen, min: number ): number
 {
     return screen.top === min ? screen.top : screen.top + ratioFix( screen.height, screen.devicePixelRatio )
 }
 
-export function fixedLeft
+export
+function fixedLeft
 ( screen: IScreen, min: number ): number
 {
     return screen.left === min ? screen.left : screen.left + ratioFix( screen.left, screen.devicePixelRatio )

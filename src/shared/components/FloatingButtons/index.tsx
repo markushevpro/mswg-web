@@ -1,11 +1,12 @@
+import type { PropsWithChildren } from 'react'
+
 import { ButtonToolbar } from 'rsuite'
 
 import styles from './floating-buttons.module.css'
 
-import type { PropsWithChildren, ReactNode } from 'react'
-
-export default function FloatingButtons
-({ children }: PropsWithChildren ): ReactNode
+export
+function FloatingButtons
+({ children }: PropsWithChildren )
 {
     return (
         <ButtonToolbar className={styles.buttons}>

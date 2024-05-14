@@ -1,13 +1,13 @@
+import type { ButtonProps } from 'rsuite'
+
 import cn         from 'classnames'
 import { Button } from 'rsuite'
 
 import styles from './bottom-button.module.css'
 
-import type { ReactNode }   from 'react'
-import type { ButtonProps } from 'rsuite'
-
-export default function BottomButton
-({ className, children, ...props }: ButtonProps ): ReactNode
+export
+function BottomButton
+({ className, children, ...props }: ButtonProps )
 {
     return (
         <Button appearance='primary' {...props} className={cn( className, styles.button )}>

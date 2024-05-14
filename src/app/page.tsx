@@ -1,3 +1,3 @@
-import HomePage from '@/entrypoints/Home'
+import { HomePage } from '@/entrypoints/Home'
 
 export default HomePage

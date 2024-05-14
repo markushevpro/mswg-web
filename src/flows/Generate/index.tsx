@@ -1,12 +1,11 @@
-import WallperpGenerationFlow from '@/flows/WallpaperGeneration'
-import BottomButton           from '@/shared/components/BottomButton'
-import Container              from '@/shared/components/Container'
-
-import styles from './generate-flow.module.css'
-
 import type { TImages }                 from '@/services/images'
 import type { IScreen, IScreensLayout } from '@/services/screens'
-import type { ReactNode }               from 'react'
+
+import { WallperpGenerationFlow } from '@/flows/WallpaperGeneration'
+import { BottomButton }           from '@/shared/components/BottomButton'
+import { Container }              from '@/shared/components/Container'
+
+import styles from './generate-flow.module.css'
 
 interface IGenerateFlowProps {
     active: boolean
@@ -17,8 +16,9 @@ interface IGenerateFlowProps {
     onFinish: () => void
 }
 
-export default function GenerateFlow
-({ active, layout, configs, images, onStart, onFinish }: IGenerateFlowProps ): ReactNode
+export
+function GenerateFlow
+({ active, layout, configs, images, onStart, onFinish }: IGenerateFlowProps )
 {
     if ( !active ) {
         return (

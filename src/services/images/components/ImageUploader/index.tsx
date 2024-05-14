@@ -1,26 +1,26 @@
+import type { TImageData } from '@/services/images/types'
+import type { FileType }   from 'rsuite/esm/Uploader'
+
 import { Close, FileUpload, Reload } from '@rsuite/icons'
 import { useEffect, useState }       from 'react'
 import { IconButton }                from 'rsuite'
 
-import ImagePreview     from '@/services/images/components/ImagePreview'
-import { FileUploader } from '@/services/system'
-import Center           from '@/shared/components/Center'
-import FloatingButtons  from '@/shared/components/FloatingButtons'
+import { ImagePreview }    from '@/services/images/components/ImagePreview'
+import { FileUploader }    from '@/services/system'
+import { Center }          from '@/shared/components/Center'
+import { FloatingButtons } from '@/shared/components/FloatingButtons'
 
 import { previewFile } from './helpers'
 import styles          from './image-uploader.module.css'
-
-import type { TImageData } from '@/services/images/types'
-import type { ReactNode }  from 'react'
-import type { FileType }   from 'rsuite/esm/Uploader'
 
 interface IImageUploaderProps {
     data?: TImageData
     onChange: ( value: TImageData ) => void
 }
 
-export default function ImageUploader
-({ data, onChange }: IImageUploaderProps ): ReactNode
+export
+function ImageUploader
+({ data, onChange }: IImageUploaderProps )
 {
     const [ uploading, $uploading ] = useState<boolean>( false )
 
@@ -65,7 +65,7 @@ export default function ImageUploader
                                 <FileUpload />
                             </FileUploader>
                         )
-                }
+ }
             </Center>
         </div>
     )

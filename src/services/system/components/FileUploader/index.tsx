@@ -1,7 +1,7 @@
-import { Button, Loader, Uploader } from 'rsuite'
+import type { PropsWithChildren } from 'react'
+import type { UploaderProps }     from 'rsuite/esm/Uploader'
 
-import type { PropsWithChildren, ReactNode } from 'react'
-import type { UploaderProps }                from 'rsuite/esm/Uploader'
+import { Button, Loader, Uploader } from 'rsuite'
 
 interface IFileUploaderProps extends PropsWithChildren {
     className?: string
@@ -9,8 +9,9 @@ interface IFileUploaderProps extends PropsWithChildren {
     onUpload: UploaderProps['onUpload']
 }
 
-export default function FileUploader
-({ children, loading, className, onUpload }: IFileUploaderProps ): ReactNode
+export
+function FileUploader
+({ children, loading, className, onUpload }: IFileUploaderProps )
 {
     return (
         <Uploader
@@ -26,7 +27,7 @@ export default function FileUploader
                     loading
                         ? <Loader />
                         : children
-                }
+ }
             </Button>
         </Uploader>
     )
