@@ -4,7 +4,7 @@ import { useGeneration } from '@/services/generation'
 import { useScreens }    from '@/services/screens'
 import { useHookResult } from '@/shared/hooks/useHookResult'
 
-interface HGenerationFlow
+interface HGenerateWallpaperFlow
 {
     ready: boolean
     active: boolean
@@ -12,8 +12,8 @@ interface HGenerationFlow
 }
 
 export
-function useGenerationFlow
-(): HGenerationFlow
+function useGenerateWallpaperFlow
+(): HGenerateWallpaperFlow
 {
     const { active, update } = useGeneration()
     const { layout, fixed }  = useScreens()

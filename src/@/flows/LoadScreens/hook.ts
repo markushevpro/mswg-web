@@ -6,7 +6,7 @@ import { useHookResult }                                          from '@/shared
 
 import { getErrorText } from './helpers'
 
-interface HScreensLoaderFlow
+interface HLoadScreensFlow
 {
     loading: boolean
     error: string | null
@@ -15,8 +15,8 @@ interface HScreensLoaderFlow
 }
 
 export
-function useScreensLoaderFlow
-(): HScreensLoaderFlow
+function useLoadScreensFlow
+(): HLoadScreensFlow
 {
     const size = useWindowSize()
 

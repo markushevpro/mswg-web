@@ -2,14 +2,14 @@ import { Generation }   from '@/segments/features/Generation'
 import { BottomButton } from '@/shared/ui-kit/BottomButton'
 import { Container }    from '@/shared/ui-kit/Container'
 
-import styles                from './generate-flow.module.css'
-import { useGenerationFlow } from './hook'
+import styles                       from './generate-flow.module.css'
+import { useGenerateWallpaperFlow } from './hook'
 
 export
-function GenerationFlow
+function GenerateWallpaperFlow
 ()
 {
-    const { ready, active, run } = useGenerationFlow()
+    const { ready, active, run } = useGenerateWallpaperFlow()
 
     if ( !ready ) {
         return null

@@ -5,13 +5,13 @@ import type { PropsWithChildren } from 'react'
 import { ErrorScreen }    from '@/screens/Error'
 import { LoadingOverlay } from '@/shared/ui-kit/LoadingOverlay'
 
-import { useScreensLoaderFlow } from './hook'
+import { useLoadScreensFlow } from './hook'
 
 export
-function ScreensLoaderFlow
+function LoadScreensFlow
 ({ children }: PropsWithChildren )
 {
-    const { loading, error, canRequest, request } = useScreensLoaderFlow()
+    const { loading, error, canRequest, request } = useLoadScreensFlow()
 
     if ( loading ) {
         return (
