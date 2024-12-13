@@ -12,8 +12,9 @@ function MainFlow
     return (
         <Center>
             <ScreensLoaderFlow>
-                <ScreensScreen />
-                <GenerationFlow />
+                <ScreensScreen>
+                    <GenerationFlow />
+                </ScreensScreen>
             </ScreensLoaderFlow>
         </Center>
     )
