@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "yarn lint --fix && tsc"
+    "test:ufo": "node ./tests/ufo-tests.cjs",
+    "test": "yarn lint --fix && tsc && yarn test:ufo"
   },
   "dependencies": {
     "@rsuite/icons": "1.0.3",
@@ -16,7 +17,8 @@
     "react": "18",
     "react-dom": "18",
     "rsuite": "5.49.0",
-    "usehooks-ts": "2.10.0"
+    "usehooks-ts": "2.10.0",
+    "zustand": "^5.0.2"
   },
   "devDependencies": {
     "@markushevpro/eslint-config": "^2.0.16",
