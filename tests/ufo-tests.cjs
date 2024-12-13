@@ -8,8 +8,8 @@ const config = {
     allowSiblings: [ 'flows', 'services', 'shared' ],
     special: {
         'segments': {
-            tops: [ 'appearance', 'behavior', 'elements' ],
-            allowSiblings: [ 'appearance', 'behavior' ]
+            tops: [ 'composition', 'features', 'elements' ],
+            allowSiblings: [ 'composition', 'features' ]
         }
     }
 }

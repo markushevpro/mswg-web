@@ -1,4 +1,4 @@
-import { Generation }   from '@/segments/behavior/Generation'
+import { Generation }   from '@/segments/features/Generation'
 import { BottomButton } from '@/shared/ui-kit/BottomButton'
 import { Container }    from '@/shared/ui-kit/Container'
 

@@ -1,4 +1,4 @@
-import { ScreensList } from '@/segments/appearance/ScreensList'
+import { ScreensList } from '@/segments/composition/ScreensList'
 import { useScreens }  from '@/services/screens'
 import { Container }   from '@/shared/ui-kit/Container'
 
