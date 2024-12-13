@@ -1,3 +1,5 @@
+'use client'
+
 import type { TImageData } from '@/services/images'
 import type { FileType }   from 'rsuite/esm/Uploader'
 

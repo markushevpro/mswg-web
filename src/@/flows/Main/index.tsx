@@ -1,3 +1,5 @@
+'use client'
+
 import { GenerationFlow }    from '@/flows/Generation'
 import { ScreensLoaderFlow } from '@/flows/ScreensLoader'
 import { ScreensScreen }     from '@/screens/Screens'

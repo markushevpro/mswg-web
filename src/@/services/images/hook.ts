@@ -1,3 +1,5 @@
+'use client'
+
 import type { TImageData, TImages } from './types'
 
 import { useCallback } from 'react'

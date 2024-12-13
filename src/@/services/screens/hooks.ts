@@ -1,3 +1,5 @@
+'use client'
+
 import type { IScreensStore } from './store'
 
 import { useCallback } from 'react'

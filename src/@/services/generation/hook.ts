@@ -1,3 +1,5 @@
+'use client'
+
 import type { IGenerationStore } from './store'
 import type { RefObject }        from 'react'
 
