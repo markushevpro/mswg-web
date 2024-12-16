@@ -56,23 +56,29 @@ function useGeneration
         [ layout, fixed, images, ref, update ]
     )
 
-    const startRedraw = (): void => {
-        void redraw()
-    }
+    const startRedraw = useCallback(
+        (): void => {
+            void redraw()
+        },
+        [ redraw ]
+    )
 
-    const handleDownload = (): void => {
-        if ( ref.current ) {
-            update({ loading: true })
+    const handleDownload = useCallback(
+        (): void => {
+            if ( ref.current ) {
+                update({ loading: true })
 
-            setTimeout(() => {
-                if ( ref.current ) {
-                    downloadFile( ref.current.toDataURL(), 'mswg-wallpaper.png' )
-                }
-            }, 0 )
+                setTimeout(() => {
+                    if ( ref.current ) {
+                        downloadFile( ref.current.toDataURL(), 'mswg-wallpaper.png' )
+                    }
+                }, 0 )
 
-            setTimeout(() => { update({ loading: false }) }, 1000 )
-        }
-    }
+                setTimeout(() => { update({ loading: false }) }, 1000 )
+            }
+        },
+        [ ref, update ]
+    )
 
     const stop = useCallback(
         () => {
