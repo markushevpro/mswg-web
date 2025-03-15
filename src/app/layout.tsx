@@ -1,3 +1,4 @@
 import { RootLayout } from '@/shared/layouts/RootLayout'
 
-export default RootLayout
+export default
+RootLayout

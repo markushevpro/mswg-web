@@ -1,8 +1,8 @@
-import type { FileType } from 'rsuite/esm/Uploader'
-
 import { FileUpload } from '@rsuite/icons'
 
 import { FileUploader } from '@/shared/ui-kit/FileUploader'
+
+import type { FileType } from 'rsuite/esm/Uploader'
 
 interface PUploaderView
 {

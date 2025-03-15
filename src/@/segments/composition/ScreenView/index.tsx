@@ -1,6 +1,6 @@
-import type { Screen } from '@/services/screens'
-
 import { ImageUploader } from '@/segments/features/ImageUploader'
+
+import type { Screen } from '@/services/screens'
 
 import { useScreenView } from './hook'
 import styles            from './screen.module.css'

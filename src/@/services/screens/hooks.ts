@@ -1,15 +1,15 @@
 'use client'
 
-import type { IScreensStore } from './store'
-
 import { useCallback } from 'react'
+
+import type { ScreensStore } from './store'
 
 import { getSystemScreens } from './helpers'
 import { useScreensStore }  from './store'
 
 interface HScreens
     extends
-    IScreensStore
+    ScreensStore
 {
     available: boolean
     retry: () => Promise<void>
@@ -22,7 +22,7 @@ function useScreens
     const { update, ...rest } = useScreensStore()
 
     const getScreens = useCallback(
-        async (): Promise<void> => {
+        async () => {
             update({
                 loading: true,
                 error:   false

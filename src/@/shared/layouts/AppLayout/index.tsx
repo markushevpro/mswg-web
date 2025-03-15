@@ -1,6 +1,6 @@
-import type { PropsWithChildren } from 'react'
-
 import { Header, Content, Container } from 'rsuite'
+
+import type { PropsWithChildren } from 'react'
 
 import styles from './app-layout.module.css'
 

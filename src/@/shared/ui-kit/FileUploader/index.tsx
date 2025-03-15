@@ -1,12 +1,13 @@
-import type { PropsWithChildren } from 'react'
-import type { UploaderProps }     from 'rsuite/esm/Uploader'
-
 import { Uploader } from 'rsuite'
 
 import { Button } from '@/shared/ui-kit/Button'
 
+import type { PropsWithChildren } from 'react'
+import type { UploaderProps }     from 'rsuite/esm/Uploader'
+
 interface PFileUploader
-    extends PropsWithChildren
+    extends
+    PropsWithChildren
 {
     className?: string
     loading?: boolean

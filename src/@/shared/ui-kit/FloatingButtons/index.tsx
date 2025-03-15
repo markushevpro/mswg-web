@@ -1,6 +1,6 @@
-import type { PropsWithChildren } from 'react'
-
 import { ButtonToolbar } from 'rsuite'
+
+import type { PropsWithChildren } from 'react'
 
 import styles from './floating-buttons.module.css'
 

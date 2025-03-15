@@ -1,11 +1,11 @@
-import type { Metadata }  from 'next'
-import type { ReactNode } from 'react'
-
 import cn        from 'classnames'
 import { Inter } from 'next/font/google'
 import 'rsuite/dist/rsuite.min.css'
 
 import '@/shared/styles/globals.css'
+
+import type { Metadata }  from 'next'
+import type { ReactNode } from 'react'
 
 const inter = Inter({ subsets: [ 'latin', 'cyrillic' ] })
 
@@ -15,14 +15,14 @@ const metadata: Metadata = {
     description: 'Generate a single wallpaper image for muiltiple screens set'
 }
 
-interface IRootLayoutProps
+interface PRootLayout
 {
     children: ReactNode
 }
 
 export
 function RootLayout
-({ children }: Readonly<IRootLayoutProps> )
+({ children }: Readonly<PRootLayout> )
 {
     return (
         <html lang="en">

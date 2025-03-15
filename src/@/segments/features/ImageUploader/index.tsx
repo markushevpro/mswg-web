@@ -1,6 +1,6 @@
-import type { TImageData } from '@/services/images'
-
 import { Center } from '@/shared/ui-kit/Center'
+
+import type { TImageData } from '@/services/images'
 
 import { ImageView }        from './ImageView'
 import { UploaderView }     from './UploaderView'

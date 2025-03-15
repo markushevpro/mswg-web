@@ -1,9 +1,9 @@
-import type { MutableRefObject } from 'react'
-
 import { createRef } from 'react'
 import { create }    from 'zustand'
 
-interface IGenerationStoreData
+import type { MutableRefObject } from 'react'
+
+interface GenerationStoreData
 {
     ref: MutableRefObject<HTMLCanvasElement | null>
     active: boolean
@@ -11,22 +11,22 @@ interface IGenerationStoreData
     done: boolean
 }
 
-interface IGenerationStoreActions
+interface GenerationStoreActions
 {
-    update: ( payload: Partial<IGenerationStoreData> ) => void
+    update: ( payload: Partial<GenerationStoreData> ) => void
 }
 
 export
-type IGenerationStore = IGenerationStoreData & IGenerationStoreActions
+type GenerationStore = GenerationStoreData & GenerationStoreActions
 
 export
-const useGenerationStore = create<IGenerationStore>(( set ) => ({
+const useGenerationStore = create<GenerationStore>(( set ) => ({
     active:  false,
     loading: false,
     done:    false,
     ref:     createRef<HTMLCanvasElement>(),
 
-    update: ( payload: Partial<IGenerationStoreData> ) => {
+    update: ( payload: Partial<GenerationStoreData> ) => {
         set({ ...payload })
     }
 }))

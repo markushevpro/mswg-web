@@ -18,7 +18,10 @@ function useGenerateWallpaperFlow
     const { active, update } = useGeneration()
     const { layout, fixed }  = useScreens()
 
-    const ready = useMemo(() => !!( layout && fixed ), [ fixed, layout ])
+    const ready = useMemo(
+        () => !!( layout && fixed ),
+        [ fixed, layout ]
+    )
 
     const run = useCallback(
         () => {

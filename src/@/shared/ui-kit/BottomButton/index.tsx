@@ -1,8 +1,8 @@
-import type { ComponentProps } from 'react'
-
 import cn from 'classnames'
 
 import { Button } from '@/shared/ui-kit/Button'
+
+import type { ComponentProps } from 'react'
 
 import styles from './bottom-button.module.css'
 

@@ -1,9 +1,9 @@
+import { create } from 'zustand'
+
 import type { Screen, ScreensLayout, SystemScreensState } from '@/services/screens'
 import type { CSSProperties }                             from 'react'
 
-import { create } from 'zustand'
-
-interface IScreensStoreData
+interface ScreensStoreData
     extends
     SystemScreensState
 {
@@ -12,16 +12,16 @@ interface IScreensStoreData
     style: CSSProperties | undefined
 }
 
-interface IScreensStoreActions
+interface ScreensStoreActions
 {
-    update: ( payload: Partial<IScreensStoreData> ) => void
+    update: ( payload: Partial<ScreensStoreData> ) => void
 }
 
 export
-type IScreensStore = IScreensStoreData & IScreensStoreActions
+type ScreensStore = ScreensStoreData & ScreensStoreActions
 
 export
-const useScreensStore = create<IScreensStore>(( set ) => ({
+const useScreensStore = create<ScreensStore>(( set ) => ({
     loading: true,
     error:   false,
     denied:  false,
@@ -30,7 +30,7 @@ const useScreensStore = create<IScreensStore>(( set ) => ({
     layout:  undefined,
     style:   undefined,
 
-    update: ( payload: Partial<IScreensStoreData> ) => {
+    update: ( payload: Partial<ScreensStoreData> ) => {
         set({ ...payload })
     }
 }))

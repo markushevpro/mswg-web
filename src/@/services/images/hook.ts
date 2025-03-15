@@ -1,10 +1,10 @@
 'use client'
 
-import type { TImageData, TImages } from './types'
-
 import { useCallback } from 'react'
 
 import { useHookResult } from '@/shared/hooks/useHookResult'
+
+import type { TImageData, TImages } from './types'
 
 import { useImagesStore } from './store'
 

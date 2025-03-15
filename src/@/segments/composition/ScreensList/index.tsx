@@ -1,7 +1,7 @@
-import type { Screen } from '@/services/screens'
-
 import { ScreenView } from '@/segments/composition/ScreenView'
 import { useScreens } from '@/services/screens'
+
+import type { Screen } from '@/services/screens'
 
 import { EDITOR_PADDING } from './consts'
 

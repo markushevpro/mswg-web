@@ -1,7 +1,7 @@
-import type { PropsWithChildren } from 'react'
-
 import { useScreens } from '@/services/screens'
 import { Container }  from '@/shared/ui-kit/Container'
+
+import type { PropsWithChildren } from 'react'
 
 export
 function ScreensContainer

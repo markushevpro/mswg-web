@@ -1,6 +1,6 @@
-import type { ButtonProps } from 'rsuite'
-
 import { Loader, Button as RButton } from 'rsuite'
+
+import type { ButtonProps } from 'rsuite'
 
 interface PButton
     extends

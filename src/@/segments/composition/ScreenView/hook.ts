@@ -1,12 +1,12 @@
-import type { TImageData }    from '@/services/images'
-import type { Screen }        from '@/services/screens'
-import type { CSSProperties } from 'react'
-
 import { useCallback, useMemo } from 'react'
 
 import { useImages }     from '@/services/images'
 import { useScreens }    from '@/services/screens'
 import { useHookResult } from '@/shared/hooks/useHookResult'
+
+import type { TImageData }    from '@/services/images'
+import type { Screen }        from '@/services/screens'
+import type { CSSProperties } from 'react'
 
 import { getScreenStyle } from './helpers'
 
@@ -24,9 +24,20 @@ function useScreenView
     const { layout }                       = useScreens()
     const { images, update: updateImages } = useImages()
 
-    const zoom  = useMemo(() => layout?.zoom ?? 1, [ layout?.zoom ])
-    const image = useMemo(() => images?.[ screen.label ], [ images, screen.label ])
-    const style = useMemo(() => getScreenStyle( screen, zoom, offset ), [ screen, zoom, offset ])
+    const zoom = useMemo(
+        () => layout?.zoom ?? 1,
+        [ layout?.zoom ]
+    )
+
+    const image = useMemo(
+        () => images?.[ screen.label ],
+        [ images, screen.label ]
+    )
+
+    const style = useMemo(
+        () => getScreenStyle( screen, zoom, offset ),
+        [ screen, zoom, offset ]
+    )
 
     const update = useCallback(
         ( data: TImageData ) => {

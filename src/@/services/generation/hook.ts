@@ -1,8 +1,5 @@
 'use client'
 
-import type { IGenerationStore } from './store'
-import type { RefObject }        from 'react'
-
 import { useCallback, useEffect } from 'react'
 
 import { useImages }     from '@/services/images'
@@ -10,12 +7,15 @@ import { useScreens }    from '@/services/screens'
 import { downloadFile }  from '@/services/system'
 import { useHookResult } from '@/shared/hooks/useHookResult'
 
+import type { GenerationStore } from './store'
+import type { RefObject }       from 'react'
+
 import { clearScreen, drawImage } from './helpers'
 import { useGenerationStore }     from './store'
 
 interface HGeneration
     extends
-    IGenerationStore
+    GenerationStore
 {
     ref: RefObject<HTMLCanvasElement>
     redraw: () => void
@@ -33,7 +33,7 @@ function useGeneration
     const { ref, loading, update, ...rest } = useGenerationStore()
 
     const redraw = useCallback(
-        async (): Promise<void> => {
+        async () => {
             if ( layout && fixed && images && ref.current ) {
                 update({ done: false })
 
@@ -57,14 +57,14 @@ function useGeneration
     )
 
     const startRedraw = useCallback(
-        (): void => {
+        () => {
             void redraw()
         },
         [ redraw ]
     )
 
     const handleDownload = useCallback(
-        (): void => {
+        () => {
             if ( ref.current ) {
                 update({ loading: true })
 

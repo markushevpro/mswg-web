@@ -1,11 +1,12 @@
-import type { PropsWithChildren } from 'react'
-
 import cn from 'classnames'
+
+import type { PropsWithChildren } from 'react'
 
 import styles from './center.module.css'
 
 interface PCenter
-    extends PropsWithChildren
+    extends
+    PropsWithChildren
 {
     className?: string
 }

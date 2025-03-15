@@ -22,8 +22,15 @@ function useLoadScreensFlow
 
     const { denied, error, loading, available, screens, update, retry } = useScreens()
 
-    const canRequest = useMemo(() => available && !denied, [ available, denied ])
-    const errorText  = useMemo(() => error ? getErrorText( available, denied ) : null, [ available, denied, error ])
+    const canRequest = useMemo(
+        () => available && !denied,
+        [ available, denied ]
+    )
+
+    const errorText = useMemo(
+        () => error ? getErrorText( available, denied ) : null,
+        [ available, denied, error ]
+    )
 
     const request = useCallback(
         () => {
@@ -35,7 +42,7 @@ function useLoadScreensFlow
     )
 
     const updateFixed = useCallback(
-        (): void => {
+        () => {
             if ( screens ) {
                 const data = calculateScreensLayout([].slice.call( screens ), size )
 

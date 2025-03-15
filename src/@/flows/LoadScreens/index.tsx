@@ -1,9 +1,9 @@
 'use client'
 
-import type { PropsWithChildren } from 'react'
-
 import { ErrorScreen }    from '@/screens/Error'
 import { LoadingOverlay } from '@/shared/ui-kit/LoadingOverlay'
+
+import type { PropsWithChildren } from 'react'
 
 import { useLoadScreensFlow } from './hook'
 
