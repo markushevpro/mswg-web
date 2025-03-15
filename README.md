@@ -21,7 +21,7 @@
     <img alt="GitHub Actions Workflow Status" src="https://img.shields.io/github/actions/workflow/status/markushevpro/mswg-web/main.yml" />
     <img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/t/markushevpro/mswg-web" />
     <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/markushevpro/mswg-web" />
-    <img alt="W3C Validation" src="https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2Fmswg.nw-lab.com%2F" />
+    <!--<img alt="W3C Validation" src="https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2Fmswg.nw-lab.com%2F" />-->
 </p>
 
 A web app that lets you quickly and easily create a single seamless wallpaper from multiple images for computers with multiple monitors.
